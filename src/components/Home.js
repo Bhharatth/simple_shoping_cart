@@ -19,21 +19,25 @@ const transformProducts = () => {
         sort === "lowToHigh" ? a.price - b.price : b.price - a.price
       );
     }
+
     if (!bystock) {
     sortedProducts = sortedProducts.filter((prod)=> prod.inStock)
     }
+
     if(byFastDelivery) {
         sortedProducts = sortedProducts.filter((prod)=> prod.byFastDelivery)
     }
+
     if(byRating) {
         sortedProducts = sortedProducts.filter(
-            (prod) => prod.rating >= byRating
+            (prod) => prod.ratings >= byRating
         )
     }
+
     if (searchQuery) {
         sortedProducts = sortedProducts.filter((prod)=>
         prod.name.toLowerCase().includes(searchQuery)
-        )
+        );
     }
 
     
